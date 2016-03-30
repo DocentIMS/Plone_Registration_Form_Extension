@@ -1,0 +1,77 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="docentims.signup">
+
+  <i18n:registerTranslations directory="locales" />
+
+  <includeDependencies package="." />
+
+  <include package=".browser" />
+  <include package=".controlpanel" />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="docentims.signup"
+      directory="profiles/default"
+      description="Installs the docentims.signup add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="docentims.signup-postInstall"
+      title="docentims.signup post_install import step"
+      description="Post install import step from docentims.signup"
+      handler=".setuphandlers.post_install">
+  </genericsetup:importStep>
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="docentims.signup"
+      directory="profiles/uninstall"
+      description="Uninstalls the docentims.signup add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="docentims.signup-uninstall"
+      title="docentims.signup uninstall import step"
+      description="Import step run during ininstalling docentims.signup"
+      handler=".setuphandlers.uninstall">
+  </genericsetup:importStep>
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="docentims.signup-hiddenprofiles" />
+
+  <!-- get 'associated with' vocabulary -->
+  <utility
+      name="docentims.signup.vocabularies.associated_with"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      component="docentims.signup.vocabularies.GetAssociated"
+      />
+
+  <!-- get 'I am a' groups vocabulary -->
+  <utility
+      name="docentims.signup.vocabularies.signup_groups"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      component="docentims.signup.vocabularies.GetSignUpGroups"
+      />
+
+  <adapter
+    factory=".userdataschema.RegistrationPanelExtender"
+    provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
+
+  <adapter
+    factory=".userdataschema.UserDataPanelExtender"
+    provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
+
+  <adapter
+      provides=".userdataschema.IEnhancedUserDataSchema"
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      factory=".userdataschema.EnhancedUserDataSchemaAdapter"
+      />
+
+</configure>

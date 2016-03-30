@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="docentims.theme">
+
+    <include package="Products.CMFCore" file="permissions.zcml" />
+
+    <browser:page
+        name="docentims-settings"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".settings.SettingsControlPanel"
+        permission="cmf.ManagePortal"
+        />
+
+</configure>

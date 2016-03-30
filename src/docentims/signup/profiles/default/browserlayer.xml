@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+      name="docentims.signup"
+      interface="docentims.signup.interfaces.IDocentimsSignupLayer"
+      />
+</layers>

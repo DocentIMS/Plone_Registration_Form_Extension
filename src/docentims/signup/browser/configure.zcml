@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="docentims.signup">
+
+  <include package="plone.app.users" />
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="docentims.signup.interfaces.IDocentimsSignupLayer"
+      />
+
+  <!-- Publish static files -->
+  <browser:resourceDirectory
+      name="docentims.signup"
+      directory="static"
+      />
+
+  <browser:page
+      name="register"
+      for="Products.CMFPlone.Portal.PloneSite"
+      class=".forms.DocentimsRegistrationForm"
+      permission="zope.Public"
+      />
+</configure>

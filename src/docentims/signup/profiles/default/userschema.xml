@@ -1,0 +1,25 @@
+<model
+  xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
+  xmlns:users="http://namespaces.plone.org/supermodel/users"
+  xmlns:form="http://namespaces.plone.org/supermodel/form"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  xmlns:security="http://namespaces.plone.org/supermodel/security"
+  xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
+  xmlns="http://namespaces.plone.org/supermodel/schema"
+  i18n:domain="plone">
+  <schema name="member-fields">
+    <field name="associated" type="zope.schema.Choice">
+      <description/>
+      <required>False</required>
+      <title i18n:translate="docentims_signup_associated_title">Associated with</title>
+      <missing_value/>
+      <vocabulary>docentims.signup.vocabularies.associated_with</vocabulary>
+    </field>
+    <field name="signup_groups" type="zope.schema.Choice">
+      <description/>
+      <required>False</required>
+      <title i18n:translate="docentims_signup_groups_title">I am</title>
+      <vocabulary>docentims.signup.vocabularies.signup_groups</vocabulary>
+    </field>
+  </schema>
+</model>

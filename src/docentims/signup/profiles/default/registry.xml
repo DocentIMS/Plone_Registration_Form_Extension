@@ -1,0 +1,4 @@
+<registry>
+  <records interface="docentims.signup.controlpanel.interface.ISettings">
+  </records>
+</registry>
