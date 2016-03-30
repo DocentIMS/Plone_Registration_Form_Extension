@@ -6,12 +6,14 @@
 docentims.signup
 ==============================================================================
 
-Tell me what your product does
+This is Plone 5 CMS addon that extends Registration form with few group related fields.
 
 Features
 --------
 
-- Can be bullet points
+- Separate control panel /@@docentims-settings that allows you to select and enter field vocabularies
+- "I am" field that allows anonymous to select group he/her belongs to
+- "I am associated with" field to pick organization from
 
 
 Examples
@@ -49,6 +51,8 @@ Install docentims.signup by adding it to your buildout::
 
 
 and then running ``bin/buildout``
+
+Then install addon via Plone Addon Control Panel.
 
 
 Contribute

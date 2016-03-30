@@ -1,1 +1,1 @@
-- Igor Margitich, dest81@gmail.com
+- Igor Margitich, dest81@gmail.com [SoftFormance.com]
