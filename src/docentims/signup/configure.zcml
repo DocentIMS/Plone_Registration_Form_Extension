@@ -54,6 +54,13 @@
       component="docentims.signup.vocabularies.GetAssociated"
       />
 
+  <!-- get available user groups  -->
+  <utility
+      name="docentims.signup.vocabularies.group_ids"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      component="docentims.signup.vocabularies.GetGroupIds"
+      />
+
   <!-- get 'I am a' groups vocabulary -->
   <utility
       name="docentims.signup.vocabularies.signup_groups"

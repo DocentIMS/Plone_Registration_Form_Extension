@@ -9,7 +9,8 @@ class ISettings(Interface):
         title=_(u"Groups"),
         description=_(u"Groups which will be shown on the regitration form."),
         required=False,
-        value_type=schema.Choice(vocabulary='plone.app.users.group_ids')
+        value_type=schema.Choice(
+            vocabulary='docentims.signup.vocabularies.group_ids')
     )
 
     associated = schema.List(
