@@ -10,16 +10,28 @@
   <schema name="member-fields">
     <field name="associated" type="zope.schema.Choice">
       <description/>
-      <required>False</required>
-      <title i18n:translate="docentims_signup_associated_title">Associated with</title>
+      <required>True</required>
+      <title i18n:translate="docentims_signup_associated_title">I am Associated With</title>
       <missing_value/>
       <vocabulary>docentims.signup.vocabularies.associated_with</vocabulary>
     </field>
     <field name="signup_groups" type="zope.schema.Choice">
       <description/>
-      <required>False</required>
-      <title i18n:translate="docentims_signup_groups_title">I am</title>
+      <required>True</required>
+      <title i18n:translate="docentims_signup_groups_title">I am a</title>
       <vocabulary>docentims.signup.vocabularies.signup_groups</vocabulary>
+    </field>
+    <field name="is_volunteer" type="zope.schema.Bool">
+      <description/>
+      <required>False</required>
+      <default>False</default>
+      <title i18n:translate="docentims_signup_is_volunteer_title">I am available to volunteer</title>
+    </field>
+    <field name="skills" type="zope.schema.Choice">
+      <description/>
+      <required>False</required>
+      <title i18n:translate="docentims_signup_skills_title">I am</title>
+      <vocabulary>docentims.signup.vocabularies.signup_skills</vocabulary>
     </field>
   </schema>
 </model>

@@ -46,6 +46,7 @@
       factory=".setuphandlers.HiddenProfiles"
       name="docentims.signup-hiddenprofiles" />
 
+  <!-- Vocabularies -->
   <!-- get 'associated with' vocabulary -->
   <utility
       name="docentims.signup.vocabularies.associated_with"
@@ -60,6 +61,14 @@
       component="docentims.signup.vocabularies.GetSignUpGroups"
       />
 
+  <!-- get 'Skills I can offer' groups vocabulary -->
+  <utility
+      name="docentims.signup.vocabularies.signup_skills"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      component="docentims.signup.vocabularies.GetSignUpSkills"
+      />
+
+  <!-- Adapters -->
   <adapter
     factory=".userdataschema.RegistrationPanelExtender"
     provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />

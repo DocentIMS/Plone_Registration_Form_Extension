@@ -13,21 +13,39 @@ from docentims.signup.interfaces import IDocentimsSignupLayer
 from docentims.signup import _
 from docentims.signup.browser.forms import DocentimsRegistrationForm
 
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
+
 
 class IEnhancedUserDataSchema(model.Schema):
     associated = schema.Choice(
         title=_(u'docentims_signup_associated_title',
-                default=u'Associated with'),
-        description=_(u'', default=u""),
-        required=False,
+                default=u'I Am Associated With'),
+        description=_(u'', default=u''),
+        required=True,
         vocabulary = 'docentims.signup.vocabularies.associated_with',
         )
 
     signup_groups = schema.Choice(
-        title=_(u'docentims_signup_groups_title', default=u'I am'),
-        description=_(u'', default=u""),
-        required=False,
+        title=_(u'docentims_signup_groups_title', default=u'I am a'),
+        description=_(u'', default=u''),
+        required=True,
         vocabulary = 'docentims.signup.vocabularies.signup_groups',
+        )
+
+    is_volunteer = schema.Bool(
+        title=_(u'docentims_signup_is_volunteer_title',
+                default=u'I am available to volunteer'),
+        description=_(u'', default=u''),
+        required=False,
+        default=False
+        )
+
+    skills = schema.Choice(
+        title=_(u'docentims_signup_skills_title',
+                default=u'Skills I can offer'),
+        description=_(u'', default=u''),
+        required=False,
+        vocabulary = 'docentims.signup.vocabularies.signup_skills',
         )
 
 
@@ -35,6 +53,7 @@ class UserDataPanelExtender(extensible.FormExtender):
     adapts(Interface, IDocentimsSignupLayer, UserDataPanel)
     def update(self):
         fields = field.Fields(IEnhancedUserDataSchema)
+        fields['skills'].widgetFactory = CheckBoxFieldWidget
         self.add(fields)
 
 
@@ -43,6 +62,7 @@ class RegistrationPanelExtender(extensible.FormExtender):
 
     def update(self):
         fields = field.Fields(IEnhancedUserDataSchema)
+        fields['skills'].widgetFactory = CheckBoxFieldWidget
         self.add(fields)
 
 

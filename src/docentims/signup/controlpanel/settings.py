@@ -4,11 +4,12 @@ from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
 from docentims.signup.controlpanel.interface import ISettings
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 
+from docentims.signup import _
 
 class SettingsEditForm(RegistryEditForm):
 
     schema = ISettings
-    label = u"Docentims SignUp Settings"
+    label = _(u"Docent IMS Site Registration Settings")
 
     def updateFields(self):
         super(SettingsEditForm, self).updateFields()

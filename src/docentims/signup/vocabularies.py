@@ -22,12 +22,14 @@ class Associated(object):
             lst = settings.associated
             if lst:
                 for val in sorted(list(set(lst))):
-                    terms.append(
-                        SimpleVocabulary.createTerm(
-                            val, val.encode('utf-8'), val))
+                    if val.replace(' ', ''):
+                        terms.append(
+                            SimpleVocabulary.createTerm(
+                                val, val.encode('utf-8'), val))
         return SimpleVocabulary(terms)
 
 GetAssociated = Associated()
+
 
 class SignUpGroups(object):
 
@@ -50,3 +52,23 @@ class SignUpGroups(object):
 GetSignUpGroups = SignUpGroups()
 
 
+class SignUpSkills(object):
+
+    implements(IVocabularyFactory)
+
+    def __call__(self, context=None):
+        registry = queryUtility(IRegistry)
+        terms = []
+
+        if registry is not None:
+            settings = registry.forInterface(ISettings)
+            lst = settings.signup_skills
+            if lst:
+                for val in sorted(list(set(lst))):
+                    if val.replace(' ', ''):
+                        terms.append(
+                            SimpleVocabulary.createTerm(
+                                val, val.encode('utf-8'), val))
+        return SimpleVocabulary(terms)
+
+GetSignUpSkills = SignUpSkills()

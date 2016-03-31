@@ -14,8 +14,16 @@ class ISettings(Interface):
 
     associated = schema.List(
         title=_(u"Associated with"),
-        description=_(u"List of 'associatedwith' items"),
+        description=_(u"List of 'I Am Associated With' items"),
         value_type=schema.TextLine(),
         required=False,
     )
+
+    signup_skills = schema.List(
+        title=_(u"Skills"),
+        description=_(u"List of 'Skills I can offer' items"),
+        value_type=schema.TextLine(),
+        required=False,
+    )
+
 

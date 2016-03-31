@@ -5,7 +5,7 @@
     i18n:domain="docentims.signup">
 
     <configlet
-        title="Docentims SignUp Settings"
+        title="Docent IMS Site Registration Settings"
         action_id="TypesSettings"
         appId="Plone"
         category="Products"
