@@ -35,7 +35,8 @@ class IEnhancedUserDataSchema(model.Schema):
     is_volunteer = schema.Bool(
         title=_(u'docentims_signup_is_volunteer_title',
                 default=u'I am available to volunteer'),
-        description=_(u'', default=u''),
+        description=_(u'docentims_signup_is_volunteer_description',
+            default=u'We depend on volunteers... How would you like to help?'),
         required=False,
         default=False
         )
