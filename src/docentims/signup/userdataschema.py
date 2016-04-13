@@ -41,12 +41,14 @@ class IEnhancedUserDataSchema(model.Schema):
         default=False
         )
 
-    skills = schema.Choice(
+    skills = schema.Set(
         title=_(u'docentims_signup_skills_title',
                 default=u'Skills I can offer'),
         description=_(u'', default=u''),
         required=False,
-        vocabulary = 'docentims.signup.vocabularies.signup_skills',
+        value_type=schema.Choice(
+            vocabulary = 'docentims.signup.vocabularies.signup_skills'
+            )
         )
 
 

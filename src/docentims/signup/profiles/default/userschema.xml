@@ -27,11 +27,14 @@
       <default>False</default>
       <title i18n:translate="docentims_signup_is_volunteer_title">I am available to volunteer</title>
     </field>
-    <field name="skills" type="zope.schema.Choice">
+    <field name="skills" type="zope.schema.Set">
+      <title i18n:translate="docentims_signup_skills">Skills</title>
       <description/>
       <required>False</required>
-      <title i18n:translate="docentims_signup_skills_title">I am</title>
-      <vocabulary>docentims.signup.vocabularies.signup_skills</vocabulary>
+      <default>False</default>
+      <value_type type="zope.schema.Choice">
+        <vocabulary>docentims.signup.vocabularies.signup_skills</vocabulary>
+      </value_type>
     </field>
   </schema>
 </model>
